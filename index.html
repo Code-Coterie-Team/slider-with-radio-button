@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>slider</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="partCircle">
+                <div class="circle circleLeft"></div>
+                <div class="circle circleCenter"></div>
+                <div class="circle circleRight" ّ></div>
+                <div class="active"></div>
+            </div>
+        </div>
+        <div class="bgContent">
+            <div class="bgchange"></div>
+        </div>
+    </div>
+</body>
+<script>
+    const circleLeft = document.querySelector(".circleLeft");
+    const circleCenter = document.querySelector(".circleCenter");
+    const circleRight = document.querySelector(".circleRight");
+    const bgchange = document.querySelector(".bgchange");
+    const active = document.querySelector(".active");
+
+    circleLeft.addEventListener("click", (event) => {
+        active.classList.remove("activeMoveCentec");
+        active.classList.remove("activeMoveRight");
+        active.classList.remove("activeMoveLeft");
+        bgchange.style.background ="#9b59b6";
+        active.style.left = "179px";
+        active.classList.add("activeMoveLeft");
+        
+    });
+
+    circleCenter.addEventListener("click", (event) => {
+        active.classList.remove("activeMoveCentec");
+        active.classList.remove("activeMoveRight");
+        active.classList.remove("activeMoveLeft");
+        bgchange.style.background ="#3498db";
+        active.style.left = "238px";
+        active.classList.add("activeMoveCentec");
+    });
+    circleRight.addEventListener("click", (event) => {
+        active.classList.remove("activeMoveCentec");
+        active.classList.remove("activeMoveRight");
+        active.classList.remove("activeMoveLeft");
+        bgchange.style.background ="#1abc9c";
+        active.style.left = "298px";
+        active.classList.add("activeMoveRight");
+    });
+  
+</script>
+
+</html>
