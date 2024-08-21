@@ -10,13 +10,14 @@
 
 <body>
     <div class="container">
-        <div class="content">
-            <div class="partCircle">
-                <div class="circle circleLeft"></div>
+        <div class="partCircle">
+            <div class="circleContainer">
+                <div id="circleLeft" class="circle circleLeft"></div>
                 <div class="circle circleCenter"></div>
                 <div class="circle circleRight" ّ></div>
-                <div class="active"></div>
+                <div id="active" class="active" style="top: 5px; left: 5px;"></div>
             </div>
+
         </div>
         <div class="bgContent">
             <div class="bgchange"></div>
@@ -24,39 +25,120 @@
     </div>
 </body>
 <script>
-    const circleLeft = document.querySelector(".circleLeft");
-    const circleCenter = document.querySelector(".circleCenter");
-    const circleRight = document.querySelector(".circleRight");
+
     const bgchange = document.querySelector(".bgchange");
+    const circleRight = document.querySelector(".circleRight");
+    const circleCenter = document.querySelector(".circleCenter");
+    const circleLeft = document.querySelector(".circleLeft");
     const active = document.querySelector(".active");
 
+    let valueGap = 10;
+    let valueMove = 49;
+    let valueMoveBig = 108;
+
     circleLeft.addEventListener("click", (event) => {
-        active.classList.remove("activeMoveCentec");
-        active.classList.remove("activeMoveRight");
-        active.classList.remove("activeMoveLeft");
-        bgchange.style.background ="#9b59b6";
-        active.style.left = "179px";
-        active.classList.add("activeMoveLeft");
-        
+        let valueStatuseActive = document.querySelector(".active").style.left;
+        splitValueStatuseActive = valueStatuseActive.split("px");
+        statuseActive = splitValueStatuseActive[0];
+        console.log("circleLeft statuseActive : " + statuseActive + "px");
+
+        active.classList.remove("moveLeftToCenter");
+        active.classList.remove("moveCenterToRight");
+        active.classList.remove("moveCenterToLeft");
+        active.classList.remove("moveLeftToRight");
+        active.classList.remove("moveRightToCenter");
+
+
+        switch (statuseActive) {
+            case "123":
+                active.classList.add("moveRightToLeft");
+                bgchange.classList.add("moveBgRightToLeft");
+                bgchange.style.background = "#9b59b6";
+                document.querySelector(".active").style.left = (parseInt(statuseActive) - valueGap - valueMoveBig) + "px";
+                break;
+
+            case "64":
+                active.classList.add("moveCenterToLeft");
+               bgchange.classList.add("moveBgRightToLeft");
+                bgchange.style.background = "#9b59b6";
+                document.querySelector(".active").style.left = (parseInt(statuseActive) - valueGap - valueMove) + "px";
+                break;
+        }
+        setTimeout(() => {
+            bgchange.classList.remove("moveBgRightToLeft");
+        }, 1000);
+      
     });
 
     circleCenter.addEventListener("click", (event) => {
-        active.classList.remove("activeMoveCentec");
-        active.classList.remove("activeMoveRight");
-        active.classList.remove("activeMoveLeft");
-        bgchange.style.background ="#3498db";
-        active.style.left = "238px";
-        active.classList.add("activeMoveCentec");
+        let valueStatuseActive = document.querySelector(".active").style.left;
+        splitValueStatuseActive = valueStatuseActive.split("px");
+        statuseActive = splitValueStatuseActive[0];
+        console.log("circleCenter statuseActive : " + statuseActive + "px");
+
+        active.classList.remove("moveCenterToRight");
+        active.classList.remove("moveCenterToLeft");
+        active.classList.remove("moveLeftToRight");
+        active.classList.remove("moveRightToCenter");
+        active.classList.remove("moveRightToLeft");
+
+        
+        switch (statuseActive) {
+            case "5":
+                // let full = parseInt(statuseActive) + valueGap + valueMove;
+                // console.log("move left active to "+ full);
+                active.classList.add("moveLeftToCenter");
+                bgchange.classList.add("moveBgRightToLeft");
+                bgchange.style.background = "#3498db";
+                document.querySelector(".active").style.left = (parseInt(statuseActive) + valueGap + valueMove) + "px";
+                break;
+
+            case "123":
+                active.classList.add("moveRightToCenter");
+                bgchange.classList.add("moveBgRightToLeft");
+                bgchange.style.background = "#3498db";
+                document.querySelector(".active").style.left = (parseInt(statuseActive) - valueGap - valueMove) + "px";
+                break;
+        }
+        setTimeout(() => {
+            bgchange.classList.remove("moveBgRightToLeft");
+        }, 1000);
+      
     });
+
     circleRight.addEventListener("click", (event) => {
-        active.classList.remove("activeMoveCentec");
-        active.classList.remove("activeMoveRight");
-        active.classList.remove("activeMoveLeft");
-        bgchange.style.background ="#1abc9c";
-        active.style.left = "298px";
-        active.classList.add("activeMoveRight");
+        let valueStatuseActive = document.querySelector(".active").style.left;
+        splitValueStatuseActive = valueStatuseActive.split("px");
+        statuseActive = splitValueStatuseActive[0];
+        console.log("circleRight statuseActive : " + statuseActive + "px");
+        active.classList.remove("moveLeftToCenter");
+        active.classList.remove("moveCenterToLeft");
+        active.classList.remove("moveRightToCenter");
+        active.classList.remove("moveLeftToRight");
+        active.classList.remove("moveRightToLeft");
+
+      
+        switch (statuseActive) {
+            case "64":
+                active.classList.add("moveCenterToRight");
+                bgchange.classList.add("moveBgRightToLeft");
+                bgchange.style.background = "#1abc9c";
+                document.querySelector(".active").style.left = (parseInt(statuseActive) + valueGap + valueMove) + "px";
+                break;
+
+            case "5":
+                active.classList.add("moveLeftToRight");
+                bgchange.classList.add("moveBgRightToLeft");
+                bgchange.style.background = "#1abc9c";
+                document.querySelector(".active").style.left = (parseInt(statuseActive) + valueGap + valueMoveBig) + "px";
+                break;
+        }
+        setTimeout(() => {
+            bgchange.classList.remove("moveBgRightToLeft");
+        }, 1000);
+      
     });
-  
+
 </script>
 
 </html>

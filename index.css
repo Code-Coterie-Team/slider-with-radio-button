@@ -9,95 +9,164 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* position: relative; */
-}
-
-.content {
-    width: 400px;
-    height: 400px;
-    /* background-color: #9b59b6; */
-    border-radius: 2px;
-    z-index: 1;
-    position: relative;
-}
-
-.partCircle {
-    position: relative;
-    width: inherit;
-    height: inherit;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-  
    
 }
 
+.partCircle {
+    
+    width: 400px;
+    height: 400px;
+    border-radius: 2px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    
+}
+.circleContainer{
+    position: relative;
+    display: flex;
+    gap: 9px;
+}
 .circle {
     width: 50px;
     height: 50px;
-    /* background-color: white; */
     border: 2px solid white;
     border-radius: 50%;
     cursor: pointer;
 }
 
-.active{
+.active {
     background-color: white;
     width: 40px;
     height: 40px;
     position: absolute;
     border-radius: 50%;
-  transform: translate(-147% ,0%);
+    /* transform: translate(-147%, 0%); */
+    /* top: 5px;
+    left: 5px; */
+}
 
-}
-.activeMoveCentec{
-    animation: moveCenter 1s;
+.moveLeftToCenter {
+    animation: moveLeftToCenter 1s;
     animation-timing-function: ease;
 }
-.activeMoveLeft{
-    animation: moveLeft 1s;
+
+.moveCenterToRight {
+    animation: moveCenterToRight 1s;
+    animation-timing-function: ease;
+} 
+
+.moveRightToCenter {
+    animation: moveRightToCenter 1s;
+    animation-timing-function: ease;
+} 
+.moveCenterToLeft{
+    animation: moveCenterToLeft 1s;
     animation-timing-function: ease;
 }
-.activeMoveRight{
-    animation: moveRight 1s;
+.moveLeftToRight{
+    animation: moveLeftToRight 1s;
     animation-timing-function: ease;
 }
-.bgContent{
+.moveRightToLeft{
+    animation: moveRightToLeft 1s;
+    animation-timing-function: ease;
+}
+
+.bgContent {
     width: 400px;
     height: 400px;
-    background: #3498db ;
+    background: #9b59b6;
     position: absolute;
     border-radius: 2px;
     /* border-left: 400px solid #9b59b6;
     border-right: 400px solid #1abc9c; */
 }
-.bgchange{
+
+.bgchange {
     width: 400px;
-    height: 400px; 
+    height: 400px;
     border-radius: 2px;
-    animation: mymovebg 3s;
-    animation-timing-function: ease;
+     /* background: #9b59b6; */
+ 
 }
-/* .circleActiveLeft{
-    border-left: 400px solid #9b59b6;
-    animation: mymovebg 5s;
-    animation-timing-function: ease; 
-} */
-@keyframes moveCenter {
-    0% {left: 179px;}
-    100% {left: 238px;}
-  }
-  @keyframes moveLeft {
-    0% {left: 238px;}
-    100% {left: 121px;}
-  }
-  @keyframes moveRight {
-    0% {left: 238px;}
-    100% {left: 298px;}
-  }
-  @keyframes mymovebg {
-    0% {width: 0px;}
-    50% {width: 0px;}
-    100% {width: 400px;}
-  }
+ .moveBgRightToLeft{
+    animation: bgRightToLeft 1s;
+    animation-timing-function: ease;
+} 
+
+@keyframes moveLeftToCenter {
+    0% {
+        left: 5px;
+    }
+
+    100% {
+        left: 64px;
+    }
+}
+ 
+@keyframes moveCenterToRight {
+    0% {
+        left: 64px;
+    }
+
+    100% {
+        left: 123px;
+    }
+}
+
+@keyframes moveRightToCenter {
+    0% {
+        left: 123px;
+    }
+
+    100% {
+        left: 64px;
+    }
+}
+
+@keyframes moveCenterToLeft {
+    0% {
+        left: 64px;
+    }
+
+    100% {
+        left: 5px;
+    }
+}
+
+@keyframes moveLeftToRight {
+    0% {
+        left: 5px;
+    }
+
+    100% {
+        left: 123px;
+    }
+}
+
+@keyframes moveRightToLeft {
+    0% {
+        left: 123px;
+    }
+
+    100% {
+        left: 5px;
+    }
+}
+@keyframes bgRightToLeft {
+    0% {
+        width: 0px;
+    }
+
+    50% {
+        width: 0px;
+    }
+
+    100% {
+        width: 400px;
+        /* background-color: #9b59b6; */
+    }
+} 
